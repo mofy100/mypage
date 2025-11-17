@@ -5,8 +5,7 @@ title: ホーム
 
 # ようこそ！
 
-これは私のブログです。Jekyll + GitHub Pagesで作っています。
-
+これは私のブログです。
 最新の記事は以下からどうぞ👇
 
 <div class="post-list">
@@ -14,6 +13,7 @@ title: ホーム
     <div class="post-card">
       <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
       <p class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</p>
+      <!-- postの最初を抜粋 → HTMLタグ除去 → 先頭100文字 -->
       <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
     </div>
   {% endfor %}
