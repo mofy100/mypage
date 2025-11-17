@@ -12,11 +12,15 @@ pagination:
 
 <!-- This loops through the paginated posts -->
 <div class="post-list">
-  {% for post in paginator.posts %}
-    <div class="post-card">
-      <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-    </div>
+  {% if paginator.posts %}
+    {% for post in paginator.posts %}
+      <div class="post-card">
+        <h1><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h1>
+      </div>
     {% endfor %}
+  {% else %}
+    <p>投稿がありません</p>
+  <% endif %>
 </div>
 
 <!-- Pagination links -->
