@@ -2,4 +2,4 @@ title: "mofy100のブログ"
 description: "mofy100のブログ"
 url: "https://your-username.github.io"
 baseurl: "/mypage"
-theme: minima # 最初はこれでもOK
+thema: "beautiful-jekyll"
