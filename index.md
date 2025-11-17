@@ -8,11 +8,6 @@ title: ホーム
 これは私のブログです。
 最新の記事は以下からどうぞ👇
 
----
-layout: default
-title: My Blog
----
-
 <!-- This loops through the paginated posts -->
 <div class="post-list">
   {% for post in paginator.posts %}
