@@ -22,10 +22,12 @@ pagination:
 </div>
 
 <div class="pagination">
+  <!-- 「前へ」ボタンで1つ戻る -->
   {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path | relative_url }}">← 前へ</a>
   {% endif %}
 
+  <!-- ページ番号を列挙する。自分以外のページ番号にはリンクを貼る -->
   {% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
       <span class="current">{{ page }}</span>
@@ -34,6 +36,7 @@ pagination:
     {% endif %}
   {% endfor %}
 
+  <!-- 「次へ」ボタンで1つ進む -->
   {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path | relative_url }}">次へ →</a>
   {% endif %}
