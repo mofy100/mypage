@@ -9,10 +9,12 @@ title: ホーム
 
 最新の記事は以下からどうぞ👇
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%Y-%m-%d" }}
-    </li>
+<div class="post-list">
+  {% for post in site.posts limit:5 %}
+    <div class="post-card">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</p>
+      <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+    </div>
   {% endfor %}
-</ul>
+</div>
