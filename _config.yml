@@ -3,3 +3,5 @@ description: "mofy100のブログ"
 url: "https://your-username.github.io"
 baseurl: "/mypage"
 thema: "beautiful-jekyll"
+paginate: 10
+paginatepath: "/page:num"
