@@ -20,7 +20,7 @@ pagination:
     {% endfor %}
   {% else %}
     <p>投稿がありません</p>
-  <% endif %>
+  {% endif %}
 </div>
 
 <!-- Pagination links -->
