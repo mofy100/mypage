@@ -11,7 +11,7 @@ pagination:
 最新の記事は以下からどうぞ👇
 
 <div class="post-list">
-  {% for post in paginator.posts limit:5 %}
+  {% for post in paginator.posts %}
     <div class="post-card">
       <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
       <p class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</p>
