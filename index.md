@@ -15,17 +15,12 @@ pagination:
   {% for post in paginator.posts %}
     <div class="post-card">
       <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-      <p class="author">
-        <span class="date">{{ post.date }}</span>
-      </p>
-      <div class="content">
-        {{ post.content }}
-      </div>
     </div>
     {% endfor %}
 </div>
 
 <!-- Pagination links -->
+<!--
 <div class="pagination">
   {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path }}" class="previous">
@@ -43,3 +38,4 @@ pagination:
     <span class="next ">Next</span>
   {% endif %}
 </div>
+-->
