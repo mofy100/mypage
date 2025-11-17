@@ -1,6 +1,8 @@
 ---
 layout: default
 title: ホーム
+pagination:
+  enabled: true
 ---
 
 # ようこそ！
