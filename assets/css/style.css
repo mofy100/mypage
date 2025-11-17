@@ -59,3 +59,25 @@ a:hover {
   font-size: 1rem;
   color: #333;
 }
+
+.pagination {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.pagination a,
+.pagination span {
+  display: inline-block;
+  margin: 0 0.3rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #007acc;
+}
+
+.pagination .current {
+  background-color: #007acc;
+  color: white;
+  font-weight: bold;
+}
