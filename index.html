@@ -5,34 +5,51 @@ pagination:
   enabled: true
 ---
 
-<div class="post-list">
-  {% if paginator.posts %}
-    {% for post in paginator.posts %} <!-- paginatorからpost一覧を獲得 -->
-      <div class="post-card">
-        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-        <p class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</p>
-        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
-      </div>
-    {% endfor %}
-  {% else %}
-    <p>投稿が見つかりませんでした。</p>
-  {% endif %}
-</div>
+<div class="container">
+  <!-- メイン投稿一覧 -->
+  <div class="main-content">
+    <div class="post-list">
+      {% if paginator.posts %}
+        {% for post in paginator.posts %}
+          <div class="post-card">
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <p class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</p>
+            <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>投稿が見つかりませんでした。</p>
+      {% endif %}
+    </div>
 
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">← 前へ</a>
-  {% endif %}
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}">← 前へ</a>
+      {% endif %}
 
-  {% for trail in paginator.page_trail %}
-    {% if trail.num == paginator.page %}
-      <span class="current">{{ trail.num }}</span>
-    {% else %}
-      <a href="{{ trail.path | relative_url }}">{{ trail.num }}</a>
-    {% endif %}
-  {% endfor %}
+      {% for trail in paginator.page_trail %}
+        {% if trail.num == paginator.page %}
+          <span class="current">{{ trail.num }}</span>
+        {% else %}
+          <a href="{{ trail.path | relative_url }}">{{ trail.num }}</a>
+        {% endif %}
+      {% endfor %}
 
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}">次へ →</a>
-  {% endif %}
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}">次へ →</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- サイドバー -->
+  <aside class="sidebar">
+    <h3>タグ一覧</h3>
+    <ul class="tag-list">
+      {% for tag in site.tags %}
+        <li>
+          <a href="{{ '/tag/' | append: tag[0] | relative_url }}">{{ tag[0] }} ({{ tag[1].size }})</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </aside>
 </div>
