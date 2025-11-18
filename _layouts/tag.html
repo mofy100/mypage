@@ -1,12 +1,18 @@
 ---
 layout: default
+pagination:
+  enabled: true
 ---
 
 <h1>タグ: {{ page.tag }}</h1>
 
-{% for post in paginator.posts %}
-  <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-{% endfor %}
+{% if paginator.posts %}
+  {% for post in paginator.posts %}
+    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+  {% endfor %}
+{% else %}
+  <p>タグ "{{ page.tag }}" に関連する投稿は見つかりませんでした。</p>
+{% endif %}
 
 <div class="pagination">
   {% if paginator.previous_page %}
